@@ -21,18 +21,6 @@ const Weather = () => {
     /*console.log(data);*/
   }
 
-  const dateBuilder = (d) => {
-    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
-    let day = days[d.getDay()];
-    let date = d.getDate();
-    let month = months[d.getMonth()];
-    let year = d.getFullYear();
-
-    return `${day}, ${date} ${month}, ${year}`
-  }
-
   const updateSearch = e => {
     setSearch(e.target.value);
   };
@@ -61,7 +49,6 @@ const Weather = () => {
       {(typeof weather.main != "undefined") ? (
         <div>
           <div className="location-box">
-            <div className="date"><h1>{dateBuilder(new Date())}</h1></div>
             <div className="location"><h1>{weather.name}</h1></div>
             <div className="coords"><h3>Latitude:{weather.coord.lat},Longitude:{weather.coord.lon}</h3></div>
           </div>
